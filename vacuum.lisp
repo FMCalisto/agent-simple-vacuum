@@ -1,3 +1,5 @@
+(load "perception.lisp")
+
 (defun vacuum (p)
 	(cond ((perception-trash-p p)
 					'draw)

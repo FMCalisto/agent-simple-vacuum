@@ -1,0 +1,13 @@
+(load "perception.lisp")
+
+(defun create-agent ()
+  (let ((covered-squares 0))
+    #'(lambda (p)
+        (cond ((perception-trash-p p)
+                'draw)
+              ((perception-touch-p p)
+                'rotate)
+              ((>= covered-squares 3)
+                'wait)
+              (T (incf covered-squares)
+                'boot)))))
